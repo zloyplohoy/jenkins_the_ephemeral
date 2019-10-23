@@ -1,0 +1,28 @@
+unclassified:
+    location:
+        url: "http://localhost/"
+
+jenkins:
+    authorizationStrategy:
+        loggedInUsersCanDoAnything:
+            allowAnonymousRead: false
+    securityRealm:
+        local:
+            users:
+                - id: ${ADMIN_USERNAME:-admin}
+                  password: ${ADMIN_PASSWORD:-admin}
+jobs:
+    - script: >
+          job('Seed job') {
+              triggers {
+                  hudsonStartupTrigger {
+                      label('')
+                      quietPeriod('')
+                      nodeParameterName('')
+                      runOnChoice('')
+                  }
+              }
+              steps {
+                  sh: "echo 1"
+              }
+          }

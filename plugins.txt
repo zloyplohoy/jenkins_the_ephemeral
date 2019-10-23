@@ -1,0 +1,11 @@
+# Pipeline bundle
+workflow-aggregator
+
+# JCasC
+configuration-as-code
+
+# JobDSL
+job-dsl
+
+# Startup trigger
+startup-trigger-plugin
