@@ -1,14 +1,6 @@
-# Pipeline bundle
-workflow-aggregator
-
-# Git
-git
-
-# JCasC
 configuration-as-code
-
-# JobDSL
+git
+github
 job-dsl
-
-# Startup trigger
 startup-trigger-plugin
+workflow-aggregator
