@@ -5,7 +5,7 @@ services:
         environment:
             - CASC_JENKINS_CONFIG=/jcasc/jcasc.yml
             - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
-            - GITHUB_DEPLOY_KEY=${HOST_DEPLOY_KEY}
+            - GITHUB_DEPLOY_KEY=${GITHUB_DEPLOY_KEY}
             - GITHUB_DEPLOY_KEY_PASSPHRASE="passphrase"
         ports:
             - "80:8080"
