@@ -1,6 +1,9 @@
 # Pipeline bundle
 workflow-aggregator
 
+# Git
+git
+
 # JCasC
 configuration-as-code
 

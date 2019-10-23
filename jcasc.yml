@@ -11,6 +11,20 @@ jenkins:
             users:
                 - id: ${ADMIN_USERNAME:-admin}
                   password: ${ADMIN_PASSWORD:-admin}
+
+credentials:
+    system:
+        domainCredentials:
+            - credentials:
+                - basicSSHUserPrivateKey:
+                    scope: GLOBAL
+                    id: github_deploy_key
+                    username: git
+                    privateKeySource:
+                        directEntry:
+                            privateKey: ${GITHUB_DEPLOY_KEY}
+                    passphrase: ${GITHUB_DEPLOY_KEY_PASSPHRASE}
+
 jobs:
     - script: >
           job('Seed job') {
@@ -22,7 +36,17 @@ jobs:
                       runOnChoice('')
                   }
               }
+              scm {
+                  git {
+                      remote {
+                          github('zloyplohoy/jenkins_the_ephemeral', 'ssh')
+                          credentials('github_deploy_key')
+                      }
+                  }
+              }
               steps {
-                  sh: "echo 1"
+                  jobDsl {
+                      targets('jobs/*/definition.groovy')
+                  }
               }
           }
