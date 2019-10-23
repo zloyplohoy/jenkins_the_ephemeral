@@ -25,6 +25,10 @@ credentials:
                             privateKey: ${GITHUB_DEPLOY_KEY}
                     passphrase: ${GITHUB_DEPLOY_KEY_PASSPHRASE}
 
+security:
+    globalJobDslSecurityConfiguration:
+        useScriptSecurity: false
+
 jobs:
     - script: >
           job('Seed job') {
