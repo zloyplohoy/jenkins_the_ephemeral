@@ -2,11 +2,13 @@ version: "3.7"
 services:
     jenkins:
         build: .
-        env_file: .env
+        environment:
+            - CASC_JENKINS_CONFIG=/jcasc/jcasc.yml
+            - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+            - GITHUB_DEPLOY_KEY=${HOST_DEPLOY_KEY}
+            - GITHUB_DEPLOY_KEY_PASSPHRASE="passphrase"
         ports:
             - "80:8080"
-
-        ### Bind mount for JCasC config ###
         volumes:
             - type: bind
               source: ./jcasc.yml
