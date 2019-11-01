@@ -11,6 +11,11 @@ jenkins:
             users:
                 - id: ${ADMIN_USERNAME:-admin}
                   password: ${ADMIN_PASSWORD:-admin}
+    crumbIssuer:
+        standard:
+            excludeClientIPFromCrumb: false
+    remotingSecurity:
+        enabled: true
 
 security:
     globalJobDslSecurityConfiguration:
